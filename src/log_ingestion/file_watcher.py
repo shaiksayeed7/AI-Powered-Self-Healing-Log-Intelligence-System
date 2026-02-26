@@ -1,7 +1,5 @@
 """Watchdog-based log file watcher."""
 import os
-import time
-import threading
 from typing import Callable, List
 
 from watchdog.observers import Observer
