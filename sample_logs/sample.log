@@ -1,0 +1,50 @@
+2026-02-27T01:20:00 INFO payment-api Service started successfully latency=5ms
+2026-02-27T01:20:05 INFO auth-service Token validated for user_id=1001 latency=12ms
+2026-02-27T01:20:10 INFO user-service Request processed for /api/profile latency=45ms
+2026-02-27T01:20:15 INFO db-service Query executed SELECT users WHERE id=1001 latency=8ms
+2026-02-27T01:20:20 INFO payment-api Payment initiated amount=99.99 latency=120ms
+2026-02-27T01:20:25 INFO auth-service Token validated for user_id=1002 latency=10ms
+2026-02-27T01:20:30 WARN payment-api Slow DB query detected latency=450ms
+2026-02-27T01:20:35 INFO user-service Request processed for /api/orders latency=55ms
+2026-02-27T01:20:40 INFO db-service Query executed SELECT payments WHERE user_id=1002 latency=15ms
+2026-02-27T01:20:45 INFO payment-api Payment completed successfully latency=130ms
+2026-02-27T01:21:00 INFO auth-service Session created for user_id=1003 latency=11ms
+2026-02-27T01:21:05 INFO user-service Request processed for /api/cart latency=40ms
+2026-02-27T01:21:10 WARN db-service High connection count detected latency=200ms
+2026-02-27T01:21:15 INFO payment-api Payment initiated amount=250.00 latency=115ms
+2026-02-27T01:21:20 INFO user-service Request processed for /api/checkout latency=60ms
+[2026-02-27 01:21:30] WARN payment-api "Slow response from DB" latency=600ms
+[2026-02-27 01:21:35] ERROR payment-api "DB_CONNECTION_TIMEOUT" latency=2500ms
+[2026-02-27 01:21:40] ERROR payment-api "DB_CONNECTION_TIMEOUT" latency=3000ms
+2026-02-27T01:21:45 INFO auth-service Token validated for user_id=1004 latency=14ms
+[2026-02-27 01:21:50] ERROR db-service "CONNECTION_REFUSED pool exhausted" latency=5000ms
+2026-02-27T01:21:55 ERROR payment-api DB_CONNECTION_TIMEOUT latency=2800ms
+2026-02-27T01:22:00 ERROR payment-api DB_CONNECTION_TIMEOUT latency=3100ms
+2026-02-27T01:22:05 WARN auth-service Elevated auth failure rate detected latency=50ms
+2026-02-27T01:22:10 ERROR auth-service AUTH_FAILURE invalid token for user_id=9999 latency=5ms
+2026-02-27T01:22:15 ERROR payment-api DB_CONNECTION_TIMEOUT latency=3500ms
+[2026-02-27 01:22:20] ERROR db-service "CONNECTION_REFUSED" latency=5000ms
+2026-02-27T01:22:25 ERROR payment-api DB_CONNECTION_TIMEOUT latency=4000ms
+2026-02-27T01:22:30 ERROR payment-api DB_CONNECTION_TIMEOUT latency=4200ms
+2026-02-27T01:22:35 CRITICAL payment-api Service degraded DB unavailable latency=5000ms
+2026-02-27T01:22:40 ERROR auth-service AUTH_FAILURE invalid token for user_id=8888 latency=6ms
+2026-02-27T01:22:45 ERROR payment-api DB_CONNECTION_TIMEOUT latency=4500ms
+2026-02-27T01:22:50 ERROR payment-api DB_CONNECTION_TIMEOUT latency=4800ms
+[2026-02-27 01:22:55] CRITICAL db-service "Resource exhausted connection pool full" latency=5000ms
+2026-02-27T01:23:00 ERROR user-service Failed to load user profile latency=1200ms
+2026-02-27T01:23:05 ERROR payment-api DB_CONNECTION_TIMEOUT latency=5000ms
+2026-02-27T01:23:10 ERROR payment-api DB_CONNECTION_TIMEOUT latency=5000ms
+2026-02-27T01:23:15 WARN auth-service Retrying auth backend connection latency=80ms
+2026-02-27T01:23:20 ERROR payment-api DB_CONNECTION_TIMEOUT latency=5000ms
+2026-02-27T01:23:25 ERROR payment-api DB_CONNECTION_TIMEOUT latency=5000ms
+2026-02-27T01:23:30 CRITICAL payment-api Payment processing halted DB unreachable latency=5000ms
+[2026-02-27 01:23:35] ERROR db-service "DISK_FULL /var/lib/mysql" latency=100ms
+2026-02-27T01:23:40 ERROR user-service Failed to persist session data latency=900ms
+2026-02-27T01:23:45 ERROR auth-service AUTH_FAILURE backend timeout latency=3000ms
+2026-02-27T01:23:50 ERROR payment-api DB_CONNECTION_TIMEOUT latency=5000ms
+2026-02-27T01:23:55 INFO auth-service Circuit breaker opened for db-service latency=2ms
+2026-02-27T01:24:00 INFO payment-api Reconnect attempt 1 to DB latency=100ms
+2026-02-27T01:24:10 INFO payment-api Reconnect attempt 2 to DB latency=100ms
+2026-02-27T01:24:20 INFO payment-api DB connection restored latency=80ms
+2026-02-27T01:24:30 INFO payment-api Service recovery complete latency=50ms
+2026-02-27T01:24:40 INFO user-service Request processed successfully after recovery latency=55ms

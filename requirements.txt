@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+watchdog
+pandas
+scikit-learn
+numpy
+streamlit
+sqlalchemy
+python-dateutil
+pydantic
+aiofiles
+requests
+scipy
