@@ -1,6 +1,6 @@
 """SQLAlchemy models and CRUD operations for SentinelAI."""
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Optional
 
 from sqlalchemy import Column, Integer, String, Float, Text, DateTime, create_engine
@@ -20,7 +20,7 @@ class LogEntry(Base):
     error_type = Column(String(100), nullable=True)
     latency_ms = Column(Integer, nullable=True)
     raw = Column(Text)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
 
 class AnomalyEvent(Base):
@@ -33,7 +33,7 @@ class AnomalyEvent(Base):
     description = Column(Text)
     timestamp = Column(String(50))
     metrics_json = Column(Text)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
 
 class PredictionEvent(Base):
@@ -45,7 +45,7 @@ class PredictionEvent(Base):
     confidence = Column(Float)
     cause = Column(String(200))
     indicators_json = Column(Text)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
 
 class DatabaseManager:

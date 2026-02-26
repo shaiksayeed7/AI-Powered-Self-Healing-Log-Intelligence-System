@@ -1,6 +1,6 @@
 """Time-series based failure predictor using error velocity."""
 from collections import defaultdict, deque
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, List, Optional
 
 
@@ -26,7 +26,7 @@ class FailurePredictor:
         try:
             ts = datetime.fromisoformat(ts_str.replace("Z", "+00:00"))
         except Exception:
-            ts = datetime.utcnow()
+            ts = datetime.now(timezone.utc)
 
         bucket = int(ts.timestamp() // self._BUCKET_SECONDS)
         is_error = 1 if log_entry.get("level") in _ERROR_LEVELS else 0

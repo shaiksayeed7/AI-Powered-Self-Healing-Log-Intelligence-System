@@ -30,7 +30,11 @@ def _get(path: str, params: dict | None = None):
         r = requests.get(f"{API_BASE}{path}", params=params, timeout=5)
         r.raise_for_status()
         return r.json()
+    except requests.exceptions.ConnectionError:
+        st.sidebar.warning(f"API unreachable: {API_BASE}")
+        return None
     except Exception as exc:
+        st.sidebar.error(f"API error ({path}): {exc}")
         return None
 
 
